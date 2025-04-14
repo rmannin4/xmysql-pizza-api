@@ -87,3 +87,14 @@ http://161.35.132.49:3000/
 GET /api/pizzas - List all pizzas
 GET /api/customers - List all customers
 GET /api/orders - List all orders
+
+6. Configured MySQL Authentication
+
+Changed root user to use mysql_native_password authentication method for compatibility with XMysql
+
+sqlALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MicahLove08';
+FLUSH PRIVILEGES;
+
+7. Installed and Ran XMysql
+bashsudo npm install -g xmysql
+xmysql -h localhost -u root -p MicahLove08 -d pizza_delivery -r 0.0.0.0
